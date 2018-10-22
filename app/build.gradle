@@ -1,3 +1,8 @@
+import org.example.greeting.Greeting
+
+plugins{
+    id('org.example.greeting.groovy')
+}
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -6,6 +11,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: BuildScriptPlugin
 apply plugin: org.example.greeting.GreetingPlugin
+
+
 
 android {
     compileSdkVersion 28
@@ -41,6 +48,24 @@ helloGreetingPluginTask{
     message = "hellosssssss"
 }
 
+helloGreetingPluginGroovyTask{
+    message =" hello build "
+}
+
+task helloTask(){
+    group 'test'
+    println "helloTask 111"
+    doLast {
+        println "helloTask 111 doLast"
+    }
+}
+task helloTask2(type:Greeting){
+    group 'test'
+    println "helloTask Greeting 2222"
+    doLast {
+        println "helloTask Greeting 2222 doLast"
+    }
+}
 class BuildScriptPlugin implements Plugin<Project> {
 
 //    17:20:29: Executing task 'hello'...
