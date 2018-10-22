@@ -5,6 +5,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 apply plugin: BuildScriptPlugin
+apply plugin: org.example.greeting.GreetingPlugin
 
 android {
     compileSdkVersion 28
@@ -36,6 +37,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
 
+helloGreetingPluginTask{
+    message = "hellosssssss"
+}
 
 class BuildScriptPlugin implements Plugin<Project> {
 
